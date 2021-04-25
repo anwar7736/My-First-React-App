@@ -1,7 +1,7 @@
 import React, {Component, Fragment} from 'react';
 import {Nav, Navbar} from 'react-bootstrap';
-import whiteLogo from '../asset/images/navlogo.svg'
-import blueLogo from '../asset/images/navlogoScroll.svg'
+import whiteLogo from '../../asset/images/navlogo.svg'
+import blueLogo from '../../asset/images/navlogoScroll.svg'
 class TopNavigation extends Component{
 	constructor(){
 		super()
