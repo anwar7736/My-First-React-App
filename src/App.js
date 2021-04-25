@@ -1,7 +1,9 @@
 import React from 'react';
-import TopNavigation from './components/TopNavigation/TopNavigation.js';
-import TopBanner from './components/TopBanner/TopBanner.js';
-import Services from './components/Services/Services.js';
+import TopNavigation from './components/TopNavigation/TopNavigation';
+import TopBanner from './components/TopBanner/TopBanner';
+import Services from './components/Services/Services';
+import Analysis from './components/Analysis/Analysis';
+import Summary from './components/Summary/Summary';
 
 function App() {
   return (
@@ -10,6 +12,8 @@ function App() {
      <TopNavigation/>
      <TopBanner/>
      <Services/>
+     <Analysis/>
+     <Summary/>
 
     </div>
   );

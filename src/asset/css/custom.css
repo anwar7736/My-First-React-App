@@ -1,16 +1,31 @@
 .topFixedBanner{
-	background-image: url('../images/banner.jpg');
-	background-size: cover;
-	background-repeat: no-repeat;
-	background-attachment: fixed;
-	background-position: center;
-	min-height: 500px;
+    background-image: url('../images/banner.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    min-height: 500px;
 }
 .topBannerOverlay{
-	position: absolute;
-	min-height: 500px;
-	width: 100%;
-	background: rgba(0,0,0,0.7);
+    position: absolute;
+    min-height: 500px;
+    width: 100%;
+    background: rgba(0,0,0,0.7);
+}
+.summaryBanner{
+    background-image: url('../images/banner.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    min-height: 300px;
+    margin-top: 5rem;
+}
+.summaryBannerOverlay{
+    position: absolute;
+    min-height: 300px;
+    width: 100%;
+    background: rgba(0,0,0,0.7);
 }
 .topContent{
 	margin-top: 10rem;
@@ -95,4 +110,44 @@
     font-family: 'Montserreat',sans-serif;
     font-weight: 400;
     color: #000000 !important;
+}
+.des{
+    color :#000000;
+    font-weight: 400;
+    font-family: 'Raleway', sans-serif;
+    font-size: 14px;
+}
+.countNumber{
+    color : #ffffff;
+    font-family: 'Montserreat', sans-serif;
+    font-weight: 700;
+    font-size: 50px;
+
+}
+.countTitle{
+    color : #ffffff;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 700;
+    font-size: 25px;
+
+}
+.countSection{
+    margin-top: 15%;
+}
+.cardTitle{
+    color: #000000;
+    font-weight: 600;
+    font-size: 22px;
+    font-family: 'Raleway', sans-serif;
+}
+.cardSubTitle{
+    color: #000000;
+    font-weight: 400;
+    font-size: 14px;
+    font-family: 'Montserreat', sans-serif;
+}
+.workCard{
+    margin-top: 15%;
+    padding: 10px;
+    border-radius: 2px;
 }
