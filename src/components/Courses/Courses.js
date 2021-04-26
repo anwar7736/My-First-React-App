@@ -1,6 +1,6 @@
 import React, {Component,Fragment} from 'react';
 import {Col, Container, Row} from "react-bootstrap";
-import projectImg from '../asset/images/project.jpg';
+import projectImg from '../../asset/images/project.jpg';
 class Courses extends Component {
     render() {
         return (
@@ -32,7 +32,6 @@ class Courses extends Component {
                                     </Col>
                                 </Row>
                             </Col>
-
 
                             <Col lg={6} md={12} sm={12}>
                                 <Row>

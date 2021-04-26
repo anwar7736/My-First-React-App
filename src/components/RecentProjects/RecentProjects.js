@@ -1,6 +1,6 @@
 import React, {Component, Fragment} from 'react';
 import {Container, Row, Col, Card, Button} from 'react-bootstrap';
-import projectImg from '../asset/images/project.jpg';
+import projectImg from '../../asset/images/project.jpg';
 class RecentProjects extends Component{
 	render(){
 		return(
