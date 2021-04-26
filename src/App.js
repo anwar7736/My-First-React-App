@@ -6,6 +6,9 @@ import Analysis from './components/Analysis/Analysis';
 import Summary from './components/Summary/Summary';
 import RecentProjects from './components/RecentProjects/RecentProjects';
 import Courses from './components/Courses/Courses';
+import Video from './components/Video/Video';
+import ClientReview from './components/ClientReview/ClientReview';
+import Footer from './components/Footer/Footer';
 
 function App() {
   return (
@@ -18,6 +21,9 @@ function App() {
      <Summary/>
      <RecentProjects/>
      <Courses/>
+     <Video/>
+     <ClientReview/>
+     <Footer/>
 
     </div>
   );

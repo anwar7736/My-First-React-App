@@ -8,7 +8,7 @@ class Courses extends Component {
                     <Container className="text-center">
                         <h1 className="serviceMainTitle">OUR COURSES</h1>
                         <Row>
-                            <Col lg={6} md={12} sm={12}>
+                            <Col lg={6} md={12} sm={12} className="p-3">
                                 <Row>
                                     <Col lg={6} md={6} sm={12}>
                                         <img className="courseImg" src={projectImg}/>
@@ -20,7 +20,7 @@ class Courses extends Component {
                                     </Col>
                                 </Row>
                             </Col>
-                            <Col lg={6} md={12} sm={12}>
+                            <Col lg={6} md={12} sm={12} className="p-3">
                                 <Row>
                                     <Col lg={6} md={6} sm={12}>
                                         <img className="courseImg"  src={projectImg}/>
@@ -33,7 +33,7 @@ class Courses extends Component {
                                 </Row>
                             </Col>
 
-                            <Col lg={6} md={12} sm={12}>
+                            <Col lg={6} md={12} sm={12} className="p-3">
                                 <Row>
                                     <Col lg={6} md={6} sm={12}>
                                         <img className="courseImg"  src={projectImg}/>
@@ -47,7 +47,7 @@ class Courses extends Component {
                             </Col>
 
 
-                            <Col lg={6} md={12} sm={12}>
+                            <Col lg={6} md={12} sm={12} className="p-3">
                                 <Row>
                                     <Col lg={6} md={6} sm={12}>
                                         <img className="courseImg"  src={projectImg}/>

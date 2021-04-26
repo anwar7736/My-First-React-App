@@ -18,12 +18,12 @@
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
-    min-height: 300px;
+    min-height: 400px;
     margin-top: 5rem;
 }
 .summaryBannerOverlay{
     position: absolute;
-    min-height: 300px;
+    min-height: 400px;
     width: 100%;
     background: rgba(0,0,0,0.7);
 }
@@ -147,7 +147,7 @@
     font-family: 'Montserreat', sans-serif;
 }
 .workCard{
-    margin-top: 12%;
+    margin-top: 15%;
     padding: 10px;
     border-radius: 2px;
 }
@@ -200,6 +200,75 @@ width: 100%;
 .courseDetails:hover{
     text-decoration: none;
 }
-
-
+.videoCard{
+    margin: 50px auto;
+    box-shadow: 0 0 4px 0 rgba(0,115,230,0.2);
+    padding: 6rem 3rem 6rem 3rem;
+    background-color: #ffffff;
+}
+.videoTitle{
+    color: #0073E6;
+    font-weight: 600;
+    font-size: 22px;
+    font-family: 'Montserreat', sans-serif;
+}
+.videoDes{
+    color: #7F7E7E;
+    font-weight: 400;
+    font-size: 16px;
+    font-family: 'Raleway', sans-serif;
+}
+.playBtn{
+    color: #0073E6;
+    font-size: 48px;
+    cursor: pointer;
+}
+.circleImg{
+    margin: 0 auto;
+    height:100px;
+    width:100px;
+    border:1px solid red;
+    border-radius: 50%
+}
+.footerSection{
+    box-shadow: 0 0 4px 0 rgba(0,115,230,0.2);
+    margin-top: 5rem;
+}
+.socialLink{
+    font-weight: 600;
+    font-size: 14px;
+    font-family: 'Raleway', sans-serif;
+    color: #0073E6;
+    text-decoration: none;
+}
+.socialLink:hover{
+    color: black;
+    text-decoration: none;
+}
+.footerLink{
+    font-weight: 400;
+    font-size: 14px;
+    font-family: 'Raleway', sans-serif;
+    color: #7F7E7E;
+    text-decoration: none;
+}
+.footerLink:hover{
+    color: #0073E6;
+    text-decoration: none;
+}
+.copyRightSection{
+    padding: 20px;
+    background-color: #0073E6;
+}
+.copyRightLink{
+    font-weight: 400;
+    font-size: 15px;
+    font-family: 'Montserreat', sans-serif;
+    text-decoration: none;
+    color: #ffffff;
+}
+.copyRightLink:hover{
+    text-decoration: none;
+    color: #000000;
+}
 
