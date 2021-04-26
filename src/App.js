@@ -1,11 +1,13 @@
 import React from 'react';
-import Services from './pages/Services';
-
+import Router from './router/Router'
+import {BrowserRouter} from 'react-router-dom';
 
 function App() {
   return (
     <div>
-        <Services/>
+        <BrowserRouter>
+            <Router/>
+        </BrowserRouter>
 
     </div>
   );

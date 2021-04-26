@@ -7,7 +7,7 @@ class Contact extends Component{
 	render(){
 		return(
 				<Fragment>
-					 <TopNavigation/>
+					 <TopNavigation title="Contact"/>
 				     <PageTop pageTitle="Contact With Me"/>
 				     <ContactSection/>
 				     <Footer/>

@@ -1,19 +1,18 @@
 import React, {Component, Fragment} from 'react';
 import TopNavigation from '../components/TopNavigation/TopNavigation';
 import PageTop from '../components/PageTop/PageTop';
-import AllCourses from '../components/AllCourses/AllCourses';
 import Footer from '../components/Footer/Footer';
 
-class Courses extends Component{
+class NotFound extends Component{
 	render(){
 		return(
 				<Fragment>
-					<TopNavigation title="Courses"/>
-			        <PageTop pageTitle="All Courses"/>
-			        <AllCourses/>
-			        <Footer/>
+					 <TopNavigation title="404 Page Not Found"/>
+				     <PageTop />
+					 <h1 className="text-center text-danger">404 Page Not Found!</h1>
+					 <Footer/>
 				</Fragment>
 			);
 	}
 }
-export default Courses;
+export default NotFound;
