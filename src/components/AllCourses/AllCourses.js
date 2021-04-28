@@ -16,7 +16,7 @@ class AllCourses extends Component {
                                     <Col lg={6} md={6} sm={12}>
                                         <h5 className="text-justify courseTitle">Web Development</h5>
                                         <p className="text-justify courseDes">I build native and cross platfrom mobile app for your business app for your business</p>
-                                         <Link className="courseDetails float-left" to="/courses/1/details">Details</Link>
+                                         <Link className="courseDetails float-left" to="/CourseDetails">Details</Link>
                                     </Col>
                                 </Row>
                             </Col>
@@ -28,7 +28,7 @@ class AllCourses extends Component {
                                     <Col lg={6} md={6} sm={12}>
                                         <h5 className="text-justify courseTitle">Web Development</h5>
                                         <p className="text-justify courseDes" >I build native and cross platfrom mobile app for your business app for your business</p>
-                                          <Link className="courseDetails float-left" to="/courses/1/details">Details</Link>
+                                          <Link className="courseDetails float-left" to="/CourseDetails">Details</Link>
                                     </Col>
                                 </Row>
                             </Col>
@@ -41,7 +41,7 @@ class AllCourses extends Component {
                                     <Col lg={6} md={6} sm={12}>
                                         <h5 className="text-justify courseTitle">Web Development</h5>
                                         <p className="text-justify courseDes" >I build native and cross platfrom mobile app for your business app for your business</p>
-                                          <Link className="courseDetails float-left" to="/courses/1/details">Details</Link>
+                                          <Link className="courseDetails float-left" to="/CourseDetails">Details</Link>
                                     </Col>
                                 </Row>
                             </Col>
@@ -55,7 +55,7 @@ class AllCourses extends Component {
                                     <Col lg={6} md={6} sm={12}>
                                         <h5 className="text-justify courseTitle">Web Development</h5>
                                         <p className="text-justify courseDes" >I build native and cross platfrom mobile app for your business app for your business</p>
-                                         <Link className="courseDetails float-left" to="/courses/1/details">Details</Link>
+                                         <Link className="courseDetails float-left" to="/CourseDetails">Details</Link>
                                     </Col>
                                 </Row>
                             </Col> 
@@ -67,7 +67,7 @@ class AllCourses extends Component {
                                     <Col lg={6} md={6} sm={12}>
                                         <h5 className="text-justify courseTitle">Web Development</h5>
                                         <p className="text-justify courseDes" >I build native and cross platfrom mobile app for your business app for your business</p>
-                                         <Link className="courseDetails float-left" to="/courses/1/details">Details</Link>
+                                         <Link className="courseDetails float-left" to="/CourseDetails">Details</Link>
                                     </Col>
                                 </Row>
                             </Col> 
@@ -79,7 +79,7 @@ class AllCourses extends Component {
                                     <Col lg={6} md={6} sm={12}>
                                         <h5 className="text-justify courseTitle">Web Development</h5>
                                         <p className="text-justify courseDes" >I build native and cross platfrom mobile app for your business app for your business</p>
-                                          <Link className="courseDetails float-left" to="/courses/1/details">Details</Link>
+                                          <Link className="courseDetails float-left" to="/CourseDetails">Details</Link>
                                     </Col>
                                 </Row>
                             </Col>

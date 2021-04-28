@@ -5,6 +5,9 @@ import TermsSection from '../components/TermsDescription/TermsSection';
 import Footer from '../components/Footer/Footer';
 
 class Terms extends Component{
+		componentDidMount(){
+		window.scroll(0,0);
+	}
 	render(){
 		return(
 				<Fragment>

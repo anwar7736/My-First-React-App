@@ -10,6 +10,9 @@ import Video from '../components/Video/Video';
 import ClientReview from '../components/ClientReview/ClientReview';
 import Footer from '../components/Footer/Footer';
 class Home extends Component{
+		componentDidMount(){
+		window.scroll(0,0);
+	}
 	render(){
 		return(
 				<Fragment>

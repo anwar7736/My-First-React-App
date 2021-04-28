@@ -4,6 +4,9 @@ import PageTop from '../components/PageTop/PageTop';
 import Footer from '../components/Footer/Footer';
 
 class NotFound extends Component{
+		componentDidMount(){
+		window.scroll(0,0);
+	}
 	render(){
 		return(
 				<Fragment>

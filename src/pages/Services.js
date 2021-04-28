@@ -5,6 +5,9 @@ import Service from '../components/Services/Services';
 import ContactSection from '../components/ContactSection/ContactSection';
 import Footer from '../components/Footer/Footer';
 class Services extends Component{
+		componentDidMount(){
+		window.scroll(0,0);
+	}
 	render(){
 		return(
 				<Fragment>
