@@ -1,6 +1,7 @@
 import React, {Component,Fragment} from 'react';
 import {Col, Container, Row} from "react-bootstrap";
 import projectImg from '../../asset/images/project.jpg';
+import {Link} from 'react-router-dom';
 class Courses extends Component {
     render() {
         return (
@@ -16,7 +17,7 @@ class Courses extends Component {
                                     <Col lg={6} md={6} sm={12}>
                                         <h5 className="text-justify courseTitle">Web Development</h5>
                                         <p className="text-justify courseDes">I build native and cross platfrom mobile app for your business app for your business</p>
-                                        <a className="courseDetails float-left" href="#">Details</a>
+                                        <Link className="courseDetails float-left" to="/">Details</Link>
                                     </Col>
                                 </Row>
                             </Col>
@@ -28,7 +29,7 @@ class Courses extends Component {
                                     <Col lg={6} md={6} sm={12}>
                                         <h5 className="text-justify courseTitle">Web Development</h5>
                                         <p className="text-justify courseDes" >I build native and cross platfrom mobile app for your business app for your business</p>
-                                        <a  className="courseDetails float-left" href="#">Details</a>
+                                        <Link className="courseDetails float-left" to="/">Details</Link>
                                     </Col>
                                 </Row>
                             </Col>
@@ -41,7 +42,7 @@ class Courses extends Component {
                                     <Col lg={6} md={6} sm={12}>
                                         <h5 className="text-justify courseTitle">Web Development</h5>
                                         <p className="text-justify courseDes" >I build native and cross platfrom mobile app for your business app for your business</p>
-                                        <a  className="courseDetails float-left" href="#">Details</a>
+                                        <Link className="courseDetails float-left"  to="/">Details</Link>
                                     </Col>
                                 </Row>
                             </Col>
@@ -55,7 +56,7 @@ class Courses extends Component {
                                     <Col lg={6} md={6} sm={12}>
                                         <h5 className="text-justify courseTitle">Web Development</h5>
                                         <p className="text-justify courseDes" >I build native and cross platfrom mobile app for your business app for your business</p>
-                                        <a  className="courseDetails float-left" href="#">Details</a>
+                                        <Link className="courseDetails float-left"  to="/">Details</Link>
                                     </Col>
                                 </Row>
                             </Col>
