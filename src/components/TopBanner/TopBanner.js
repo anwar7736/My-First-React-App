@@ -1,5 +1,6 @@
 import React, {Component, Fragment} from 'react';
 import {Container, Row, Col, Button} from 'react-bootstrap';
+import {Link} from 'react-router-dom';
 
 class TopBanner extends Component{
 	render(){
@@ -13,7 +14,7 @@ class TopBanner extends Component{
 								<Col className="text-center">
 									<h1 className="topTitle">SOFTWARE ENGINEER</h1>
 									<h4 className="topSubTitle">Mobile & Web Application</h4>
-									<Button variant="primary">More Info</Button>
+									<Link className="btn btn-success" to="/about">More Info</Link>
 								</Col>
 							</Row>
 						</Container>
