@@ -19,7 +19,7 @@ class RecentProjects extends Component{
                                         Some quick example text to build on the card title and make up the bulk of
                                         the card's content.
                                     </Card.Text>
-                                   <Link className="btn btn-primary" to="/">Details</Link>
+                                   <Link className="btn btn-primary" to="/projects/1/details">Details</Link>
                                 </Card.Body>
                             </Card>
 						</Col>
@@ -32,7 +32,7 @@ class RecentProjects extends Component{
                                         Some quick example text to build on the card title and make up the bulk of
                                         the card's content.
                                     </Card.Text>
-                                   <Link className="btn btn-primary" to="/">Details</Link>
+                                   <Link className="btn btn-primary" to="/projects/1/details">Details</Link>
                                 </Card.Body>
                             </Card>
 						</Col>
@@ -45,7 +45,7 @@ class RecentProjects extends Component{
                                         Some quick example text to build on the card title and make up the bulk of
                                         the card's content.
                                     </Card.Text>
-                                    <Link className="btn btn-primary" to="/">Details</Link>
+                                    <Link className="btn btn-primary" to="/projects/1/details">Details</Link>
                                 </Card.Body>
                             </Card>
 						</Col>

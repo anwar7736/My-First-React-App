@@ -15,8 +15,8 @@ class Footer extends Component{
 					<Row>
 						<Col lg={3} md={6} sm={12} className="text-justify p-5">
 							<h2 className="serviceName">Follow Me</h2>
-							 <a className="socialLink" href="#"><FontAwesomeIcon icon={faFacebook}/> Facebook</a><br/>
-							 <a className="socialLink" href="#"><FontAwesomeIcon icon={faYoutube}/> Youtube</a>
+							 <a className="socialLink" target="_blank" href="https://www.facebook.com/anwarhossain7736"><FontAwesomeIcon icon={faFacebook}/> Facebook</a><br/>
+							 <a className="socialLink" target="_blank" href="https://www.youtube.com/channel/UCSMFY8_rooijS-Zv43tKCrQ"><FontAwesomeIcon icon={faYoutube}/> Youtube</a>
 						</Col>
 						<Col lg={3} md={6} sm={12} className="text-justify p-5">
 							<h2 className="serviceName">Address</h2>
@@ -31,9 +31,9 @@ class Footer extends Component{
 						</Col>
 						<Col lg={3} md={6} sm={12} className="text-justify p-5">
 							<h2 className="serviceName">Legal</h2>
-							<NavLink className="footerLink" to="/">Refund Policy</NavLink><br/>
-							<NavLink className="footerLink" to="/">Terms and Conditions</NavLink><br/>
-							<NavLink className="footerLink" to="/">Privacy Policy</NavLink>
+							<NavLink className="footerLink" to="/refund">Refund Policy</NavLink><br/>
+							<NavLink className="footerLink" to="/terms">Terms and Conditions</NavLink><br/>
+							<NavLink className="footerLink" to="/privacy">Privacy Policy</NavLink>
 						</Col>
 					</Row>
 				</Container>
