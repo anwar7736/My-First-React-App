@@ -1,4 +1,5 @@
 import React, {Component, Fragment} from 'react';
+import {NavLink} from 'react-router-dom';
 import {Container, Row, Col, Button, Card} from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faEnvelope, faPhone, faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
@@ -25,15 +26,14 @@ class Footer extends Component{
 						</Col>
 						<Col lg={3} md={6} sm={12} className="text-justify p-5">
 							<h2 className="serviceName">Information</h2>
-							<a className="footerLink" href="#">About Me</a><br/>
-							<a className="footerLink" href="#">My Resume</a><br/>
-							<a className="footerLink" href="#">Contact Me</a>
+							<NavLink className="footerLink" to="/about">About Me</NavLink><br/>
+							<NavLink className="footerLink" to="/contact">Contact Me</NavLink>
 						</Col>
 						<Col lg={3} md={6} sm={12} className="text-justify p-5">
 							<h2 className="serviceName">Legal</h2>
-							<a className="footerLink" href="#">Refund Policy</a><br/>
-							<a className="footerLink" href="#">Terms and Conditions</a><br/>
-							<a className="footerLink" href="#">Privacy Policy</a>
+							<NavLink className="footerLink" to="/">Refund Policy</NavLink><br/>
+							<NavLink className="footerLink" to="/">Terms and Conditions</NavLink><br/>
+							<NavLink className="footerLink" to="/">Privacy Policy</NavLink>
 						</Col>
 					</Row>
 				</Container>
