@@ -3,10 +3,24 @@ import {Container, Row, Col} from 'react-bootstrap';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
-import circleImg from '../../asset/images/anwar.jpg';
+import AppURL from '../../RestAPI/AppURL';
+import RestClient from '../../RestAPI/RestClient';
 
 class ClientReview extends Component{
+	constructor(){
+			super()
+			this.state = {
+				myData : [],
+			}
+		}
+			componentDidMount(){
+			RestClient.GetRequest(AppURL.ClientReview).then(result=>{
+				this.setState({myData: result})
+			})
+			.catch(error=>{
 
+			});
+		}
 	render(){
 		 var settings = {
 	      dots: true,
@@ -45,6 +59,20 @@ class ClientReview extends Component{
 	        }
 	      ]
 	    };
+	    const myData = this.state.myData;
+		const myView = myData.map(myList=>{
+			return <div>
+					    <Row className="text-center justify-content-center">
+					       		<Col lg={6} md={6} sm={12}>
+					       			<img className="circleImg" src={myList.client_img}/>
+					       			<h2 className="serviceName">{myList.client_title}</h2>
+					       			<p className="serviceDescription">{myList.client_description}</p>
+					       		</Col>
+
+					     </Row>
+					</div>
+		})
+	    				
 		return(
 
 			<Fragment>
@@ -52,36 +80,7 @@ class ClientReview extends Component{
 						<h1 className="serviceMainTitle text-center">CLIENT SAYS</h1>
 
 						 <Slider {...settings}>
-					      <div>
-					       	<Row className="text-center justify-content-center">
-					       		<Col lg={6} md={6} sm={12}>
-					       			<img className="circleImg" src={circleImg}/>
-					       			<h2 className="serviceName">Web Development</h2>
-					       			<p className="serviceDescription">First i analysis the requirement of project. According to the requirement i make a proper technical analysis, then i build a software architecture. According to the planning i start coding</p>
-					       		</Col>
-
-					       	</Row>
-					      </div>
-					      <div>
-					       	<Row className="text-center justify-content-center">
-					       		<Col lg={6} md={6} sm={12}>
-					       			<img className="circleImg" src={circleImg}/>
-					       			<h2 className="serviceName">Web Development</h2>
-					       			<p className="serviceDescription">First i analysis the requirement of project. According to the requirement i make a proper technical analysis, then i build a software architecture. According to the planning i start coding</p>
-					       		</Col>
-
-					       	</Row>
-					      </div>
-					      <div>
-					       	<Row className="text-center justify-content-center">
-					       		<Col lg={6} md={6} sm={12}>
-					       			<img className="circleImg" src={circleImg}/>
-					       			<h2 className="serviceName">Web Development</h2>
-					       			<p className="serviceDescription">First i analysis the requirement of project. According to the requirement i make a proper technical analysis, then i build a software architecture. According to the planning i start coding</p>
-					       		</Col>
-
-					       	</Row>
-					      </div>
+						 	{myView}
 					    </Slider>
 					</Container>
 			</Fragment>
