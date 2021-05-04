@@ -1,5 +1,6 @@
 import React, {Component, Fragment} from 'react';
 import {Container, Row, Col, Button} from 'react-bootstrap';
+import mobile from '../../asset/images/mobile.svg';
 import AppURL from '../../RestAPI/AppURL';
 import RestClient from '../../RestAPI/RestClient';
 
