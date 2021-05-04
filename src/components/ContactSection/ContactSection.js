@@ -48,7 +48,7 @@ class ContactSection extends Component{
         }
         else{
         RestClient.PostRequest(AppURL.ContactSend, JSON.stringify(jsonData)).then(message=>{
-                    cogoToast.success('Message has been sent.');
+                    cogoToast.success('Message has been sent');
                     document.getElementById('name').value=' ';
                     document.getElementById('email').value=' ';
                     document.getElementById('message').value=' ';

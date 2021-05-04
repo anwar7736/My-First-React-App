@@ -27,8 +27,8 @@ class Router extends Component{
 			                <Route exact path="/refund" component={Refund}/>
 			                <Route exact path="/terms" component={Terms}/>
 			                <Route exact path="/privacy" component={Privacy}/>
-			                <Route exact path="/ProjectDetails" component={ProjectDetails}/>
-			                <Route exact path="/CourseDetails" component={CourseDetails}/>
+			                <Route exact path="/ProjectDetails/:projectID/:projectName" component={ProjectDetails}/>
+			                <Route exact path="/CourseDetails/:courseID/:courseName" component={CourseDetails}/>
 			                <Route component={NotFound}/>
 		              </Switch>
 				</Fragment>
