@@ -1,18 +1,19 @@
 import React, {Component, Fragment} from 'react';
 import {Container, Row, Col, Card, Button} from 'react-bootstrap';
+import projectImg from '../../asset/images/project.jpg';
 import {Link} from 'react-router-dom';
 import AppURL from '../../RestAPI/AppURL';
 import RestClient from '../../RestAPI/RestClient';
 
-class RecentProjects extends Component{
-        constructor(){
+class AllProjects extends Component{
+     constructor(){
         super()
         this.state = {
             myData : [],
         }
     }
         componentDidMount(){
-        RestClient.GetRequest(AppURL.Project3).then(result=>{
+        RestClient.GetRequest(AppURL.ProjectAll).then(result=>{
             this.setState({myData: result})
         })
         .catch(error=>{
@@ -34,14 +35,13 @@ class RecentProjects extends Component{
                                 </Card.Body>
                             </Card>
                         </Col>
-        })
+                })
 		return(
 
 			<Fragment>
-				<Container className="text-center">
-					<h1 className="serviceMainTitle">RECENT PROJECTS</h1>
+				<Container className="text-center mt-5">
 					<Row>
-		                  {myView}
+						 {myView}
 					</Row>
 				</Container>
 			</Fragment>
@@ -49,4 +49,4 @@ class RecentProjects extends Component{
 	}
 
 }
-export default RecentProjects;
+export default AllProjects;

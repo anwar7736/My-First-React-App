@@ -4,15 +4,15 @@ import {Link} from 'react-router-dom';
 import AppURL from '../../RestAPI/AppURL';
 import RestClient from '../../RestAPI/RestClient';
 
-class Courses extends Component {
-      constructor(){
+class AllCourses extends Component {
+       constructor(){
         super()
         this.state = {
             myData : [],
         }
     }
         componentDidMount(){
-        RestClient.GetRequest(AppURL.CourseHome).then(result=>{
+        RestClient.GetRequest(AppURL.CourseAll).then(result=>{
             this.setState({myData: result})
         })
         .catch(error=>{
@@ -20,9 +20,9 @@ class Courses extends Component {
         });
     }
     render() {
-        const myData = this.state.myData;
-        const myView = myData.map(myList=>{
-            return  <Col lg={6} md={12} sm={12} className="p-3">
+         const myData = this.state.myData;
+         const myView = myData.map(myList=>{
+            return      <Col lg={6} md={12} sm={12} className="p-3">
                                 <Row>
                                     <Col lg={6} md={6} sm={12}>
                                         <img className="courseImg" src={myList.small_img}/>
@@ -33,13 +33,12 @@ class Courses extends Component {
                                         <Link className="courseDetails float-left" to={"/CourseDetails/"+myList.id+"/"+myList.short_title}>Details</Link>
                                     </Col>
                                 </Row>
-                    </Col>
+                        </Col>
         })
-                             
+                 
         return (
             <Fragment>
-                    <Container className="text-center">
-                        <h1 className="serviceMainTitle">OUR COURSES</h1>
+                    <Container className="text-center mt-5">
                         <Row>
                             {myView}
                         </Row>
@@ -49,4 +48,4 @@ class Courses extends Component {
     }
 }
 
-export default Courses;
+export default AllCourses;

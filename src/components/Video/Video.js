@@ -4,15 +4,27 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlayCircle } from '@fortawesome/free-solid-svg-icons';
 import 'video-react/dist/video-react.css';
 import { Player, BigPlayButton } from 'video-react';
-
+import AppURL from '../../RestAPI/AppURL';
+import RestClient from '../../RestAPI/RestClient';
+import ReactHtmlParser from 'react-html-parser';
 
 class Video extends Component{
 	constructor(){
 		super()
 		this.state = {
-			show : false
+			show : false,
+			video_desc : '',
+			video_url : '',
 		}
 	}
+	componentDidMount(){
+        RestClient.GetRequest(AppURL.VideoHome).then(result=>{
+            this.setState({video_desc: result[0]['video_description'], video_url: result[0]['video_url']})
+        })
+        .catch(error=>{
+
+        }); 
+    }
 	modalOpen=()=>{
 		this.setState({show:true})
 	}
@@ -28,7 +40,7 @@ class Video extends Component{
 							<Col lg={12} md={12} sm={12} className="videoCard">
 								<div>
 									 <p className="videoTitle">How I Do</p>
-	                                 <p className="videoDes text-justify">First i analysis the requirement of project. According to the requirement i make a proper technical analysis, then i build a software architecture. According to the planning i start coding. Testing is also going on with coding. Final testing take place after finishing coding part. After successful implementation i provide 6 month free bug fixing service for corresponding project.</p>
+	                                	{ this.state.video_desc }
 	                                 <p><FontAwesomeIcon onClick={this.modalOpen} className="playBtn" icon={faPlayCircle} /></p>
 								</div>
 							</Col>
@@ -40,7 +52,7 @@ class Video extends Component{
 				        </Modal.Header>
 				        <Modal.Body>
 				        	 <Player>
-						      	<source src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4" />
+						      	<source src={ this.state.video_desc } />
 						      	<BigPlayButton position="center"/>
 						    </Player>	        	
 				        </Modal.Body>
