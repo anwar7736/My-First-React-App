@@ -3,23 +3,30 @@ import {Container, Row, Col, Button} from 'react-bootstrap';
 import mobile from '../../asset/images/mobile.svg';
 import AppURL from '../../RestAPI/AppURL';
 import RestClient from '../../RestAPI/RestClient';
+import Loader from '../Loader/Loader.js';
 
 class Services extends Component{
 		constructor(){
 		super()
 		this.state = {
 			myData : [],
+			loader : true,
 		}
 	}
 		componentDidMount(){
 		RestClient.GetRequest(AppURL.Services).then(result=>{
-			this.setState({myData: result})
+			this.setState({myData: result, loader:false})
 		})
 		.catch(error=>{
 
 		});
 	}
 	render(){
+		if(this.state.loader==true)
+        {
+            return <Loader/>
+        }
+        else{
 		const myData = this.state.myData;
 		const myView = myData.map(myList=>{
 			return <Col lg={4} md={6} sm={12}>
@@ -40,6 +47,7 @@ class Services extends Component{
 				</Container>
 			</Fragment>
 			);
+	  }
 	}
 
 }

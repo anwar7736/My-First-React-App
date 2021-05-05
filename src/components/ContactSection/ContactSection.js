@@ -6,6 +6,7 @@ import AppURL from '../../RestAPI/AppURL';
 import RestClient from '../../RestAPI/RestClient';
 import ReactHtmlParser from 'react-html-parser';
 import cogoToast from 'cogo-toast';
+import Loader from '../Loader/Loader.js';
 
 class ContactSection extends Component{
      constructor(){
@@ -14,6 +15,8 @@ class ContactSection extends Component{
             address : '',
             email : '',
             phone : '',
+            loaderClass: 'd-block',
+            mainDiv : 'd-none',
 
         }
     }
@@ -22,7 +25,9 @@ class ContactSection extends Component{
             this.setState({
                 address: result[0]['address'],
                 email: result[0]['email'], 
-                phone: result[0]['phone']
+                phone: result[0]['phone'],
+                loaderClass: 'd-none',
+                mainDiv : 'd-block',
             })
         })
         .catch(error=>{
@@ -88,12 +93,16 @@ class ContactSection extends Component{
                                 </Button>
                             </Form>
 						</Col>
-						<Col lg={6} md={6} sm={12} className="p-3">
+						<Col lg={6} md={6} sm={12} className={this.state.loaderClass}>
+                            <h1 className="serviceName">Discuss Now</h1>
+                            <span><Loader/></span>
+                        </Col>
+                        <Col lg={6} md={6} sm={12} className={this.state.mainDiv}>
                             <h1 className="serviceName">Discuss Now</h1>
                             <p className="serviceDescription"><FontAwesomeIcon icon={faMapMarkerAlt}/> Palli Biddut, Ashulia, Savar, Dhaka-1349</p>
                             <p className="serviceDescription"><FontAwesomeIcon icon={faPhone}/> {this.state.phone}  </p>
                             <p className="serviceDescription"><FontAwesomeIcon icon={faEnvelope}/> {this.state.email} </p>
-						</Col>
+                        </Col>
 					</Row>
 				</Container>
 			</Fragment>

@@ -5,6 +5,7 @@ import {Link} from 'react-router-dom';
 import AppURL from '../../RestAPI/AppURL';
 import RestClient from '../../RestAPI/RestClient';
 import ReactHtmlParser from 'react-html-parser';
+import Loader from '../Loader/Loader.js';
 
 class ProjectDetails extends Component{
 	constructor(props){
@@ -16,6 +17,7 @@ class ProjectDetails extends Component{
 				short_description : '',
 				project_features : '',
 				live_preview : '',
+				loader : true,
 			}
 		}
 	 componentDidMount(){
@@ -25,7 +27,8 @@ class ProjectDetails extends Component{
             	project_name: result[0]['project_name'], 
             	short_description: result[0]['short_description'], 
             	project_features: result[0]['project_features'], 
-            	live_preview: result[0]['live_preview']
+            	live_preview: result[0]['live_preview'], 
+            	loader:false
             })
         })
         .catch(error=>{
@@ -33,6 +36,11 @@ class ProjectDetails extends Component{
         }); 
     }
 	render(){
+		if(this.state.loader==true)
+        {
+            return <Loader/>
+        }
+        else{
 		return(
 
 			<Fragment>
@@ -51,6 +59,7 @@ class ProjectDetails extends Component{
 				</Container>
 			</Fragment>
 			);
+	}
 	}
 
 }

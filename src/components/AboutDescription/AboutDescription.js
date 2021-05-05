@@ -3,24 +3,31 @@ import {Col, Container, Row} from "react-bootstrap";
 import AppURL from '../../RestAPI/AppURL';
 import RestClient from '../../RestAPI/RestClient';
 import ReactHtmlParser from 'react-html-parser';
+import Loader from '../Loader/Loader.js';
 
 class AboutDescription extends Component {
     constructor(){
         super()
         this.state = {
             data : '',
+             loader : true,
 
         }
     }
       componentDidMount(){
         RestClient.GetRequest(AppURL.Information).then(result=>{
-            this.setState({data: result[0]['about']})
+            this.setState({data: result[0]['about'], loader:false})
         })
         .catch(error=>{
 
         }); 
     }
     render() {
+         if(this.state.loader==true)
+        {
+            return <Loader/>
+        }
+        else {
         return (
             <Fragment>
                 <Container className="mt-5">
@@ -32,6 +39,7 @@ class AboutDescription extends Component {
                 </Container>
             </Fragment>
         );
+    }
     }
 }
 

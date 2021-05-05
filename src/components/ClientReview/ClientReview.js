@@ -6,23 +6,30 @@ import Slider from "react-slick";
 import anwar from '../../asset/images/anwar.jpg';
 import AppURL from '../../RestAPI/AppURL';
 import RestClient from '../../RestAPI/RestClient';
+import Loader from '../Loader/Loader.js';
 
 class ClientReview extends Component{
 	constructor(){
 			super()
 			this.state = {
 				myData : [],
+				loader : true,
 			}
 		}
 			componentDidMount(){
 			RestClient.GetRequest(AppURL.ClientReview).then(result=>{
-				this.setState({myData: result})
+				this.setState({myData: result, loader:false})
 			})
 			.catch(error=>{
 
 			});
 		}
 	render(){
+		if(this.state.loader==true)
+        {
+            return <Loader/>
+        }
+        else{
 		 var settings = {
 	      dots: true,
 	      infinite: true,
@@ -88,6 +95,7 @@ class ClientReview extends Component{
 
 
 			);
+		}
 	}
 
 }

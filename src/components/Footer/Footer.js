@@ -7,6 +7,7 @@ import {faFacebook, faYoutube } from '@fortawesome/free-brands-svg-icons';
 import AppURL from '../../RestAPI/AppURL';
 import RestClient from '../../RestAPI/RestClient';
 import ReactHtmlParser from 'react-html-parser';
+import Loader from '../Loader/Loader.js';
 
 class Footer extends Component{
 	 constructor(){
@@ -18,6 +19,8 @@ class Footer extends Component{
             facebook : '',
             youtube : '',
             footer_credit : '',
+            loaderClass: 'd-block',
+            mainDiv : 'd-none p-5 text-justify',
 
         }
     }
@@ -29,7 +32,9 @@ class Footer extends Component{
             	phone: result[0]['phone'], 
             	facebook: result[0]['facebook'], 
             	youtube: result[0]['youtube'], 
-            	footer_credit: result[0]['footer_credit']
+            	footer_credit: result[0]['footer_credit'], 
+            	loaderClass: 'd-none',
+                mainDiv : 'd-block p-5 text-justify',
             })
         })
         .catch(error=>{
@@ -47,7 +52,10 @@ class Footer extends Component{
 							 <a className="socialLink" target="_blank" href={this.state.facebook}><FontAwesomeIcon icon={faFacebook}/> Facebook</a><br/>
 							 <a className="socialLink" target="_blank" href={this.state.youtube}><FontAwesomeIcon icon={faYoutube}/> Youtube</a>
 						</Col>
-						<Col lg={3} md={6} sm={12} className="text-justify p-5">
+						<Col lg={3} md={6} sm={12} className={this.state.loaderClass}>
+							<Loader/>
+						</Col>
+						<Col lg={3} md={6} sm={12} className={this.state.mainDiv}>
 							<h2 className="serviceName">Address</h2>
 							<p className="serviceDescription"><FontAwesomeIcon icon={faMapMarkerAlt}/> Palli Biddut, Ashulia, Dhaka-1349</p>
 							<p className="serviceDescription"><FontAwesomeIcon icon={faPhone}/> {this.state.phone} </p>

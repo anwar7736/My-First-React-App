@@ -4,6 +4,7 @@ import { BarChart, Bar, XAxis, Tooltip, ResponsiveContainer } from 'recharts';
 import AppURL from '../../RestAPI/AppURL';
 import RestClient from '../../RestAPI/RestClient';
 import ReactHtmlParser from 'react-html-parser';
+import Loader from '../Loader/Loader.js';
 
 class Analysis extends Component{
 	constructor(){
@@ -11,11 +12,12 @@ class Analysis extends Component{
 		this.state = {
 			data : [],
 			desc : '',
+			loader : true,
 		}
 	}
 	  componentDidMount(){
         RestClient.GetRequest(AppURL.ChartData).then(result=>{
-            this.setState({data: result})
+            this.setState({data: result, loader:false})
         })
         .catch(error=>{
 
@@ -28,6 +30,11 @@ class Analysis extends Component{
         });
     }
 	render(){
+		if(this.state.loader==true)
+        {
+            return <Loader/>
+        }
+        else{
 		const blue = 'rgba(0, 115, 230, 0.8)'
 		return(
 			<Fragment>
@@ -51,6 +58,7 @@ class Analysis extends Component{
 				</Container>
 			</Fragment>
 			);
+		}
 	}
 
 }

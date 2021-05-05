@@ -315,3 +315,7 @@ width: 100%;
     font-size: 14px;
     font-weight: 400;
 }
+.loaderImg{
+    height: 100px;
+    width: 100px;
+}

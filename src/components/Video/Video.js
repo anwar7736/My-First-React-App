@@ -7,6 +7,7 @@ import { Player, BigPlayButton } from 'video-react';
 import AppURL from '../../RestAPI/AppURL';
 import RestClient from '../../RestAPI/RestClient';
 import ReactHtmlParser from 'react-html-parser';
+import Loader from '../Loader/Loader.js';
 
 class Video extends Component{
 	constructor(){
@@ -15,11 +16,12 @@ class Video extends Component{
 			show : false,
 			video_desc : '',
 			video_url : '',
+			loader : true,
 		}
 	}
 	componentDidMount(){
         RestClient.GetRequest(AppURL.VideoHome).then(result=>{
-            this.setState({video_desc: result[0]['video_description'], video_url: result[0]['video_url']})
+            this.setState({video_desc: result[0]['video_description'], video_url: result[0]['video_url'], loader:false})
         })
         .catch(error=>{
 
@@ -32,6 +34,11 @@ class Video extends Component{
 		this.setState({show:false})
 	}
 	render(){
+		if(this.state.loader==true)
+        {
+            return <Loader/>
+        }
+        else{
 		return(
 
 			<Fragment>
@@ -66,6 +73,7 @@ class Video extends Component{
 
 
 			);
+	}
 	}
 
 }

@@ -4,23 +4,31 @@ import projectImg from '../../asset/images/project.jpg';
 import {Link} from 'react-router-dom';
 import AppURL from '../../RestAPI/AppURL';
 import RestClient from '../../RestAPI/RestClient';
+import Loader from '../Loader/Loader.js';
+
 
 class AllProjects extends Component{
      constructor(){
         super()
         this.state = {
             myData : [],
+             loader : true,
         }
     }
         componentDidMount(){
         RestClient.GetRequest(AppURL.ProjectAll).then(result=>{
-            this.setState({myData: result})
+            this.setState({myData: result, loader:false})
         })
         .catch(error=>{
 
         });
     }
 	render(){
+        if(this.state.loader==true)
+        {
+            return <Loader/>
+        }
+        else {
         const myData = this.state.myData;
         const myView = myData.map(myList=>{
             return   <Col lg={4} md={6} sm={12} className="p-3">
@@ -46,6 +54,7 @@ class AllProjects extends Component{
 				</Container>
 			</Fragment>
 			);
+        }
 	}
 
 }
