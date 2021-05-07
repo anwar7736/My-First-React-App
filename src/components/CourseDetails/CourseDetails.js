@@ -9,6 +9,7 @@ import AppURL from '../../RestAPI/AppURL';
 import RestClient from '../../RestAPI/RestClient';
 import ReactHtmlParser from 'react-html-parser';
 import Loader from '../Loader/Loader.js';
+import Failer from '../Failer/Failer.js';
 
 class CourseDetails extends Component{
      constructor(props){
@@ -22,10 +23,17 @@ class CourseDetails extends Component{
             skill_all : '',
             video_url : '',
             loader : true,
+            error : false,
         }
     }
         componentDidMount(){
         RestClient.GetRequest(AppURL.CourseDetails+this.state.id).then(result=>{
+            if(result==null)
+            {
+               this.setState({error : true, loader : false})
+            }
+            else
+            {
             this.setState({
                 long_title : result[0]['long_title'],
                 long_des : result[0]['long_des'],
@@ -35,17 +43,19 @@ class CourseDetails extends Component{
                 video_url : result[0]['video_url'],
                 loader:false
             })
+           }
         })
         .catch(error=>{
-
+            this.setState({error : true, loader : false})
         });
     }
 	render(){
-        if(this.state.loader==true)
+        if(this.state.loader==true && this.state.error==false)
         {
             return <Loader/>
         }
-        else{
+        else if(this.state.loader==false && this.state.error==false) 
+        {
 		return(
 
 			<Fragment>
@@ -84,6 +94,10 @@ class CourseDetails extends Component{
                 </Container>
 				</Fragment>
 			);
+        }
+        else if(this.state.error==true && this.state.loader==false) 
+        {
+             return <Failer/>
         }
 	}
 

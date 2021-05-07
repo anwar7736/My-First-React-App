@@ -6,6 +6,7 @@ import AppURL from '../../RestAPI/AppURL';
 import RestClient from '../../RestAPI/RestClient';
 import ReactHtmlParser from 'react-html-parser';
 import Loader from '../Loader/Loader.js';
+import Failer from '../Failer/Failer.js';
 
 class ProjectDetails extends Component{
 	constructor(props){
@@ -18,10 +19,17 @@ class ProjectDetails extends Component{
 				project_features : '',
 				live_preview : '',
 				loader : true,
+				error : false,
 			}
 		}
 	 componentDidMount(){
         RestClient.GetRequest(AppURL.ProjectDetails+this.state.id).then(result=>{
+        	if(result==null)
+            {
+               this.setState({error : true, loader : false})
+            }
+            else
+            {
             this.setState({
             	img_two: result[0]['img_two'],
             	project_name: result[0]['project_name'], 
@@ -30,17 +38,19 @@ class ProjectDetails extends Component{
             	live_preview: result[0]['live_preview'], 
             	loader:false
             })
+        	}
         })
         .catch(error=>{
-
+        	this.setState({error : true, loader : false})
         }); 
     }
 	render(){
-		if(this.state.loader==true)
+		if(this.state.loader==true && this.state.error==false)
         {
             return <Loader/>
         }
-        else{
+        else if(this.state.loader==false && this.state.error==false) 
+        {
 		return(
 
 			<Fragment>
@@ -60,6 +70,10 @@ class ProjectDetails extends Component{
 			</Fragment>
 			);
 	}
+	else if(this.state.error==true && this.state.loader==false) 
+    {
+         return <Failer/>
+    }
 	}
 
 }

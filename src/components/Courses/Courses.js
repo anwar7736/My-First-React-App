@@ -4,6 +4,7 @@ import {Link} from 'react-router-dom';
 import AppURL from '../../RestAPI/AppURL';
 import RestClient from '../../RestAPI/RestClient';
 import Loader from '../Loader/Loader.js';
+import Failer from '../Failer/Failer.js';
 
 class Courses extends Component {
       constructor(){
@@ -11,22 +12,31 @@ class Courses extends Component {
         this.state = {
             myData : [],
             loader : true,
+            error : false,
         }
     }
         componentDidMount(){
         RestClient.GetRequest(AppURL.CourseHome).then(result=>{
+            if(result==null)
+            {
+               this.setState({error : true, loader : false})
+            }
+            else
+            {
             this.setState({myData: result, loader:false})
+            }
         })
         .catch(error=>{
-
+            this.setState({error : true, loader : false})
         });
     }
     render() {
-        if(this.state.loader==true)
+        if(this.state.loader==true && this.state.error==false)
         {
             return <Loader/>
         }
-        else{
+        else if(this.state.loader==false && this.state.error==false) 
+        {
         const myData = this.state.myData;
         const myView = myData.map(myList=>{
             return  <Col lg={6} md={12} sm={12} className="p-3">
@@ -53,6 +63,10 @@ class Courses extends Component {
                     </Container>
             </Fragment>
         );
+    }
+    else if(this.state.error==true && this.state.loader==false) 
+    {
+         return <Failer/>
     }
     }
 }

@@ -5,30 +5,39 @@ import {Link} from 'react-router-dom';
 import AppURL from '../../RestAPI/AppURL';
 import RestClient from '../../RestAPI/RestClient';
 import Loader from '../Loader/Loader.js';
-
+import Failer from '../Failer/Failer.js';
 
 class AllProjects extends Component{
      constructor(){
         super()
         this.state = {
             myData : [],
-             loader : true,
+            loader : true,
+            error : false,
         }
     }
         componentDidMount(){
         RestClient.GetRequest(AppURL.ProjectAll).then(result=>{
+            if(result==null)
+            {
+               this.setState({error : true, loader : false})
+            }
+            else
+            {
             this.setState({myData: result, loader:false})
+            }
         })
         .catch(error=>{
-
+             this.setState({error : true, loader : false})
         });
     }
 	render(){
-        if(this.state.loader==true)
+        if(this.state.loader==true && this.state.error==false)
         {
             return <Loader/>
         }
-        else {
+        else if(this.state.loader==false && this.state.error==false) 
+        {
         const myData = this.state.myData;
         const myView = myData.map(myList=>{
             return   <Col lg={4} md={6} sm={12} className="p-3">
@@ -54,6 +63,10 @@ class AllProjects extends Component{
 				</Container>
 			</Fragment>
 			);
+        }
+        else if(this.state.error==true && this.state.loader==false) 
+        {
+             return <Failer/>
         }
 	}
 

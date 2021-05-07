@@ -4,6 +4,7 @@ import mobile from '../../asset/images/mobile.svg';
 import AppURL from '../../RestAPI/AppURL';
 import RestClient from '../../RestAPI/RestClient';
 import Loader from '../Loader/Loader.js';
+import Failer from '../Failer/Failer.js';
 
 class Services extends Component{
 		constructor(){
@@ -11,22 +12,31 @@ class Services extends Component{
 		this.state = {
 			myData : [],
 			loader : true,
+			error : false,
 		}
 	}
 		componentDidMount(){
 		RestClient.GetRequest(AppURL.Services).then(result=>{
+			 if(result==null)
+            {
+               this.setState({error : true, loader : false})
+            }
+            else
+            {
 			this.setState({myData: result, loader:false})
+			}
 		})
 		.catch(error=>{
-
+			this.setState({error : true, loader : false})
 		});
 	}
 	render(){
-		if(this.state.loader==true)
+		if(this.state.loader==true && this.state.error==false)
         {
             return <Loader/>
         }
-        else{
+        else if(this.state.loader==false && this.state.error==false) 
+        {
 		const myData = this.state.myData;
 		const myView = myData.map(myList=>{
 			return <Col lg={4} md={6} sm={12}>
@@ -48,6 +58,10 @@ class Services extends Component{
 			</Fragment>
 			);
 	  }
+	else if(this.state.error==true && this.state.loader==false) 
+    {
+         return <Failer/>
+    }
 	}
 
 }

@@ -4,6 +4,7 @@ import AppURL from '../../RestAPI/AppURL';
 import RestClient from '../../RestAPI/RestClient';
 import ReactHtmlParser from 'react-html-parser';
 import Loader from '../Loader/Loader.js';
+import Failer from '../Failer/Failer.js';
 
 class RefundSection extends Component {
     constructor(){
@@ -11,22 +12,31 @@ class RefundSection extends Component {
         this.state = {
             data : '',
             loader : true,
+            error : false,
         }
     }
       componentDidMount(){
         RestClient.GetRequest(AppURL.Information).then(result=>{
+            if(result==null)
+            {
+               this.setState({error : true, loader : false})
+            }
+            else
+            {
             this.setState({data: result[0]['refund'], loader:false})
+            }
         })
         .catch(error=>{
-
+            this.setState({error : true, loader : false})
         }); 
     }
     render() {
-        if(this.state.loader==true)
+        if(this.state.loader==true && this.state.error==false)
         {
             return <Loader/>
         }
-        else{
+        else if(this.state.loader==false && this.state.error==false) 
+        {
         return (
             <Fragment>
                     <Container className="mt-5">
@@ -39,6 +49,10 @@ class RefundSection extends Component {
             </Fragment>
         );
     }   
+    else if(this.state.error==true && this.state.loader==false) 
+    {
+         return <Failer/>
+    }
     }
 }
 

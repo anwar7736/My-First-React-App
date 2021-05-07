@@ -5,6 +5,7 @@ import AppURL from '../../RestAPI/AppURL';
 import RestClient from '../../RestAPI/RestClient';
 import ReactHtmlParser from 'react-html-parser';
 import Loader from '../Loader/Loader.js';
+import Failer from '../Failer/Failer.js';
 
 class Analysis extends Component{
 	constructor(){
@@ -13,28 +14,44 @@ class Analysis extends Component{
 			data : [],
 			desc : '',
 			loader : true,
+			error : false,
 		}
 	}
 	  componentDidMount(){
         RestClient.GetRequest(AppURL.ChartData).then(result=>{
+        	if(result==null)
+            {
+               this.setState({error : true, loader : false})
+            }
+            else
+            {
             this.setState({data: result, loader:false})
+        	}
         })
         .catch(error=>{
-
+        	this.setState({error : true, loader : false})
         }); 
         RestClient.GetRequest(AppURL.TechDesc).then(result=>{
-            this.setState({desc: result[0]['tech_description']})
+        	if(result==null)
+            {
+               this.setState({error : true, loader : false})
+            }
+            else
+            {
+            this.setState({desc: result[0]['tech_description'], loader:false})
+       		}
         })
         .catch(error=>{
-
+        	this.setState({error : true, loader : false})
         });
     }
 	render(){
-		if(this.state.loader==true)
+		if(this.state.loader==true && this.state.error==false)
         {
             return <Loader/>
         }
-        else{
+        else if(this.state.loader==false && this.state.error==false) 
+        {
 		const blue = 'rgba(0, 115, 230, 0.8)'
 		return(
 			<Fragment>
@@ -59,6 +76,10 @@ class Analysis extends Component{
 			</Fragment>
 			);
 		}
+		else if(this.state.error==true && this.state.loader==false) 
+	    {
+	         return <Failer/>
+	    }
 	}
 
 }

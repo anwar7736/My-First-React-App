@@ -4,6 +4,7 @@ import {Link} from 'react-router-dom';
 import AppURL from '../../RestAPI/AppURL';
 import RestClient from '../../RestAPI/RestClient';
 import Loader from '../Loader/Loader.js';
+import Failer from '../Failer/Failer.js';
 
 class TopBanner extends Component{
 	constructor(){
@@ -13,29 +14,40 @@ class TopBanner extends Component{
 			subtitle : '...',
 			loaderClass: 'd-block',
             mainDiv : 'd-none text-center',
+            error : 'd-none',
 		}
 	}
 	componentDidMount(){
 		RestClient.GetRequest(AppURL.HomeTopTitle).then(result=>{
+			if(result==null)
+            {
+               this.setState({error : 'text-center', loaderClass : 'd-none', mainDiv : 'd-none'})
+            }
+            else
+            {
 			this.setState({
 				title: result[0]['home_title'], 
 				subtitle: result[0]['home_subtitle'],
 				loaderClass: 'd-none',
                 mainDiv : 'd-block text-center',
+                error : 'd-none',
 			})
+			}
 		})
 		.catch(error=>{
-
+			 this.setState({error : 'text-center', loaderClass : 'd-none', mainDiv : 'd-none'})
 		});
 	}
 	render(){
 		return(
-
 			<Fragment>
 				<Container fluid={true} className="topFixedBanner p-0">
 					<div className="topBannerOverlay">
 						<Container className="topContent">
 							<Row>
+								<Col className={this.state.error}>
+									<Failer/>
+								</Col>
 								<Col className={this.state.loaderClass}>
 									<Loader/>
 								</Col>
@@ -53,6 +65,7 @@ class TopBanner extends Component{
 
 
 			);
+		
 	}
 
 }

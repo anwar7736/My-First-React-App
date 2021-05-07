@@ -8,6 +8,7 @@ import AppURL from '../../RestAPI/AppURL';
 import RestClient from '../../RestAPI/RestClient';
 import ReactHtmlParser from 'react-html-parser';
 import Loader from '../Loader/Loader.js';
+import Failer from '../Failer/Failer.js';
 
 class Footer extends Component{
 	 constructor(){
@@ -21,11 +22,18 @@ class Footer extends Component{
             footer_credit : '',
             loaderClass: 'd-block',
             mainDiv : 'd-none p-5 text-justify',
+            error : 'd-none',
 
         }
     }
      componentDidMount(){
         RestClient.GetRequest(AppURL.Footer).then(result=>{
+        	if(result==null)
+            {
+               this.setState({error : 'text-center', loaderClass : 'd-none', mainDiv : 'd-none'})
+            }
+            else
+            {
             this.setState({
             	address: result[0]['address'],
             	email: result[0]['email'], 
@@ -35,10 +43,12 @@ class Footer extends Component{
             	footer_credit: result[0]['footer_credit'], 
             	loaderClass: 'd-none',
                 mainDiv : 'd-block p-5 text-justify',
+                error : 'd-none',
             })
+        }
         })
         .catch(error=>{
-
+        	 this.setState({error : 'text-center', loaderClass : 'd-none', mainDiv : 'd-none'})
         }); 
     }
 	render(){
@@ -54,6 +64,9 @@ class Footer extends Component{
 						</Col>
 						<Col lg={3} md={6} sm={12} className={this.state.loaderClass}>
 							<Loader/>
+						</Col>
+						<Col lg={3} md={6} sm={12} className={this.state.error}>
+							<Failer/>
 						</Col>
 						<Col lg={3} md={6} sm={12} className={this.state.mainDiv}>
 							<h2 className="serviceName">Address</h2>

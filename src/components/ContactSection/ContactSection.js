@@ -7,6 +7,7 @@ import RestClient from '../../RestAPI/RestClient';
 import ReactHtmlParser from 'react-html-parser';
 import cogoToast from 'cogo-toast';
 import Loader from '../Loader/Loader.js';
+import Failer from '../Failer/Failer.js';
 
 class ContactSection extends Component{
      constructor(){
@@ -17,21 +18,30 @@ class ContactSection extends Component{
             phone : '',
             loaderClass: 'd-block',
             mainDiv : 'd-none',
+            error : 'd-none',
 
         }
     }
      componentDidMount(){
         RestClient.GetRequest(AppURL.Footer).then(result=>{
+            if(result==null)
+            {
+               this.setState({error : 'text-center', loaderClass : 'd-none', mainDiv : 'd-none'})
+            }
+            else
+            {
             this.setState({
                 address: result[0]['address'],
                 email: result[0]['email'], 
                 phone: result[0]['phone'],
                 loaderClass: 'd-none',
                 mainDiv : 'd-block',
+                error : 'd-none',
             })
+            }
         })
         .catch(error=>{
-
+            this.setState({error : 'text-center', loaderClass : 'd-none', mainDiv : 'd-none'})
         }); 
     }
     contactSend=(e)=>{
@@ -93,7 +103,11 @@ class ContactSection extends Component{
                                 </Button>
                             </Form>
 						</Col>
-						<Col lg={6} md={6} sm={12} className={this.state.loaderClass}>
+						<Col lg={6} md={6} sm={12} className={this.state.error}>
+                            <h1 className="serviceName">Discuss Now</h1>
+                            <span><Failer/></span>
+                        </Col>
+                        <Col lg={6} md={6} sm={12} className={this.state.loaderClass}>
                             <h1 className="serviceName">Discuss Now</h1>
                             <span><Loader/></span>
                         </Col>
