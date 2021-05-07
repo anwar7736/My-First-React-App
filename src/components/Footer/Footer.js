@@ -21,7 +21,7 @@ class Footer extends Component{
             youtube : '',
             footer_credit : '',
             loaderClass: 'd-block',
-            mainDiv : 'd-none p-5 text-justify',
+            mainDiv : 'd-none p-3 text-justify',
             error : 'd-none',
 
         }
@@ -42,7 +42,7 @@ class Footer extends Component{
             	youtube: result[0]['youtube'], 
             	footer_credit: result[0]['footer_credit'], 
             	loaderClass: 'd-none',
-                mainDiv : 'd-block p-5 text-justify',
+                mainDiv : 'd-block p-3 text-justify',
                 error : 'd-none',
             })
         }
@@ -57,7 +57,7 @@ class Footer extends Component{
 			<Fragment>
 				<Container fluid={true} className="text-center footerSection">
 					<Row>
-						<Col lg={3} md={6} sm={12} className="text-justify p-5">
+						<Col lg={3} md={6} sm={12} className="text-justify p-3">
 							<h2 className="serviceName">Follow Me</h2>
 							 <a className="socialLink" target="_blank" href={this.state.facebook}><FontAwesomeIcon icon={faFacebook}/> Facebook</a><br/>
 							 <a className="socialLink" target="_blank" href={this.state.youtube}><FontAwesomeIcon icon={faYoutube}/> Youtube</a>
@@ -74,12 +74,12 @@ class Footer extends Component{
 							<p className="serviceDescription"><FontAwesomeIcon icon={faPhone}/> {this.state.phone} </p>
 							<p className="serviceDescription"><FontAwesomeIcon icon={faEnvelope}/> {this.state.email} </p>
 						</Col>
-						<Col lg={3} md={6} sm={12} className="text-justify p-5">
+						<Col lg={3} md={6} sm={12} className="text-justify p-3">
 							<h2 className="serviceName">Information</h2>
 							<NavLink className="footerLink" to="/about">About Me</NavLink><br/>
 							<NavLink className="footerLink" to="/contact">Contact Me</NavLink>
 						</Col>
-						<Col lg={3} md={6} sm={12} className="text-justify p-5">
+						<Col lg={3} md={6} sm={12} className="text-justify p-3">
 							<h2 className="serviceName">Legal</h2>
 							<NavLink className="footerLink" to="/refund">Refund Policy</NavLink><br/>
 							<NavLink className="footerLink" to="/terms">Terms and Conditions</NavLink><br/>

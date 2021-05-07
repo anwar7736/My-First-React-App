@@ -81,7 +81,7 @@ class CourseDetails extends Component{
                                 <Col sm={12} md={6} lg={6}>
                                     <h1 className="serviceName">Skill You Get</h1>
                                         {ReactHtmlParser(this.state.skill_all)}
-                                    <Button variant="primary">More Info</Button>
+                                    <Button variant="primary" className="m-3">More Info</Button>
                                 </Col>
 
                                 <Col sm={12} md={6} lg={6}>

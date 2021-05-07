@@ -62,8 +62,13 @@ class ContactSection extends Component{
             cogoToast.warn('Message field are required!')
         }
         else{
-        RestClient.PostRequest(AppURL.ContactSend, JSON.stringify(jsonData)).then(message=>{
-                    cogoToast.success('Message has been sent');
+        RestClient.PostRequest(AppURL.ContactSend, JSON.stringify(jsonData)).then(response=>{
+                    if(response==true){
+                         cogoToast.success('Message has been sent');
+                    }
+                   else {
+                    cogoToast.error('Something went wrong!');
+                   }
                     document.getElementById('name').value=' ';
                     document.getElementById('email').value=' ';
                     document.getElementById('message').value=' ';
