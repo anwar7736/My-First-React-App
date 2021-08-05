@@ -1,6 +1,6 @@
 class AppURL{
 
-    static BaseURL = 'http://127.0.0.1:8000';
+    static BaseURL = 'https://site.coderanwar.com/api';
     
     static HomeTopTitle=this.BaseURL+'/HomeTopTitle';
     static TechDesc=this.BaseURL+'/TechDesc';

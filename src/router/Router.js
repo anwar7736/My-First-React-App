@@ -18,18 +18,18 @@ class Router extends Component{
 		return(
 				<Fragment>
 					  <Switch>
-			                <Route exact path="/" component={Home}/>
-			                <Route exact path="/about" component={About}/>
-			                <Route exact path="/contact" component={Contact}/>
-			                <Route exact path="/services" component={Services}/>
-			                <Route exact path="/portfolio" component={Portfolio}/>
-			                <Route exact path="/courses" component={Courses}/>
-			                <Route exact path="/refund" component={Refund}/>
-			                <Route exact path="/terms" component={Terms}/>
-			                <Route exact path="/privacy" component={Privacy}/>
-			                <Route exact path="/ProjectDetails/:projectID/:projectName" component={ProjectDetails}/>
-			                <Route exact path="/CourseDetails/:courseID/:courseName" component={CourseDetails}/>
-			                <Route component={NotFound}/>
+					  		<Route exact path="/" render={(props)=> <Home {...props} key={ Date.now() } />} />
+					  		<Route exact path="/about" render={(props)=> <About {...props} key={ Date.now() } />} />
+					  		<Route exact path="/contact" render={(props)=> <Contact {...props} key={ Date.now() } />} />
+					  		<Route exact path="/services" render={(props)=> <Services {...props} key={ Date.now() } />} />
+					  		<Route exact path="/portfolio" render={(props)=> <Portfolio {...props} key={ Date.now() } />} />
+					  		<Route exact path="/courses" render={(props)=> <Courses {...props} key={ Date.now() } />} />
+					  		<Route exact path="/refund" render={(props)=> <Refund {...props} key={ Date.now() } />} />
+					  		<Route exact path="/terms" render={(props)=> <Terms {...props} key={ Date.now() } />} />
+					  		<Route exact path="/privacy" render={(props)=> <Privacy {...props} key={ Date.now() } />} />
+					  		<Route exact path="/ProjectDetails/:projectID/:projectName" render={(props)=> <ProjectDetails {...props} key={ Date.now() } />} />
+					  		<Route exact path="/CourseDetails/:courseID/:courseName" render={(props)=> <CourseDetails {...props} key={ Date.now() } />} />
+					  		<Route exact render={(props)=> <NotFound {...props} key={ Date.now() } />} />
 		              </Switch>
 				</Fragment>
 			);

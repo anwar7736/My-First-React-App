@@ -70,7 +70,7 @@ class Footer extends Component{
 						</Col>
 						<Col lg={3} md={6} sm={12} className={this.state.mainDiv}>
 							<h2 className="serviceName">Address</h2>
-							<p className="serviceDescription"><FontAwesomeIcon icon={faMapMarkerAlt}/> Palli Biddut, Ashulia, Dhaka-1349</p>
+							<p className="serviceDescription"><FontAwesomeIcon icon={faMapMarkerAlt}/> Polashbari, Ashulia, Dhaka-1349</p>
 							<p className="serviceDescription"><FontAwesomeIcon icon={faPhone}/> {this.state.phone} </p>
 							<p className="serviceDescription"><FontAwesomeIcon icon={faEnvelope}/> {this.state.email} </p>
 						</Col>
@@ -87,8 +87,9 @@ class Footer extends Component{
 						</Col>
 					</Row>
 				</Container>
-				<Container fluid={true} className="text-center copyRightSection">
-					<a className="copyRightLink" href="#">{this.state.footer_credit}</a>
+				<Container fluid={true} className="text-center bg-dark copyRightSection">
+					<h6 className="text-light">&copy;Copyright 2020-2021</h6>
+					<p className="text-danger">All Rights Reserved By Md Anwar Hossain</p>
 				</Container>
 			</Fragment>
 

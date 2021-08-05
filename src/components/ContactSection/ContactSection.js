@@ -8,6 +8,7 @@ import ReactHtmlParser from 'react-html-parser';
 import cogoToast from 'cogo-toast';
 import Loader from '../Loader/Loader.js';
 import Failer from '../Failer/Failer.js';
+import emailjs from 'emailjs-com';
 
 class ContactSection extends Component{
      constructor(){
@@ -53,18 +54,24 @@ class ContactSection extends Component{
         let jsonData = {name:name, email:email, msg: msg};
 
         if(name==''){
-            cogoToast.warn('Name field are required!');
+            cogoToast.warn('Name Field is Required!');
         }
         else if(email==''){
-            cogoToast.warn('Email field are required!');
+            cogoToast.warn('Email Field is Required!');
         }
         else if(msg==''){
-            cogoToast.warn('Message field are required!')
+            cogoToast.warn('Message Field is Required!')
         }
         else{
-        RestClient.PostRequest(AppURL.ContactSend, JSON.stringify(jsonData)).then(response=>{
+        RestClient.PostRequest(AppURL.ContactSend, jsonData).then(response=>{
                     if(response==true){
-                         cogoToast.success('Message has been sent');
+                         emailjs.sendForm('portfolio_service', 'portfolio_template', e.target, 'user_GWJf11gBKZ4agSRdJb6VN')
+                         .then((result) => {
+                          cogoToast.success('Your message has been sent');
+                    }, (error) => {
+                          cogoToast.error('Something went wrong!');
+                    });
+                        
                     }
                    else {
                     cogoToast.error('Something went wrong!');
@@ -89,17 +96,17 @@ class ContactSection extends Component{
                               <Form onSubmit={this.contactSend}>
                                 <Form.Group>
                                     <Form.Label className="serviceDescription" >Name</Form.Label>
-                                    <Form.Control type="text" id="name"/>
+                                    <Form.Control name="name" type="text" id="name"/>
                                 </Form.Group>
 
                                 <Form.Group>
                                     <Form.Label className="serviceDescription" >Email Address</Form.Label>
-                                    <Form.Control type="email" id="email"/>
+                                    <Form.Control name="email" type="email" id="email"/>
                                 </Form.Group>
 
                                 <Form.Group>
                                     <Form.Label className="serviceDescription" >Message</Form.Label>
-                                    <Form.Control  as="textarea" rows="3" id="message"/>
+                                    <Form.Control  name="message" as="textarea" rows="3" id="message"/>
                                 </Form.Group>
 
 
